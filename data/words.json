@@ -1,18 +1,38 @@
 [
   {
-    "english": "hello",
-    "japanese": "こんにちは"
+    "english": "retreat",
+    "japanese": "退却（する）"
   },
   {
-    "english": "world",
-    "japanese": "世界"
+    "english": "demi-human",
+    "japanese": "亜人"
   },
   {
-    "english": "apple",
-    "japanese": "りんご"
+    "english": "troop",
+    "japanese": "中隊"
   },
   {
-    "english": "exorcist",
-    "japanese": "悪魔祓いを行う人、祓魔師（ふつまし）"
+    "english": "mastermind",
+    "japanese": "黒幕"
+  },
+  {
+    "english": "brainwash",
+    "japanese": "洗脳する"
+  },
+  {
+    "english": "tail",
+    "japanese": "尾行する"
+  },
+  {
+    "english": "isekai",
+    "japanese": "異世界転生する"
+  },
+  {
+    "english": "reincarnation",
+    "japanese": "転生"
+  },
+  {
+    "english": "demon lord",
+    "japanese": "魔王"
   }
 ]
