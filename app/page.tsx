@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import styles from './page.module.css';
+import { Popover, Tooltip, useMediaQuery } from '@mui/material';
 
 interface Word {
   english: string;
   japanese: string;
+  comment?: string;
 }
 
 const fetchWords = async (): Promise<Word[]> => {
@@ -49,6 +51,8 @@ const Home = () => {
     }, 600);
   };
 
+  const isTouchDevice = useMediaQuery('(hover: none) and (pointer: coarse)');
+
   if (words.length === 0) {
     return <div>Loading...</div>;
   }
@@ -74,20 +78,35 @@ const Home = () => {
         <div className={`${styles.hiddenCard} ${styles.hiddenCardLeft}`}>
           <div className={styles.word}>{animation === styles.flipLeft && tempWord ? tempWord.english : words[page].english}</div>
         </div>
-        <div
-          onClick={handleNextPage}
-          className={`${styles.card} ${animation === styles.flipRight ? styles.flipRight : ''}`}
-          style={animation === styles.flipRight ? { zIndex: 2 } : { zIndex: 1 }}
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'center',
+          }}
         >
-          <div className={animation === styles.flipRight ? styles.cardInner : styles.cardInnerFixed}>
-            <div className={styles.cardFace}>
-              <div className={styles.word}>{words[page].japanese}</div>
-            </div>
-            <div className={`${styles.cardFace} ${styles.cardBack}`}>
-              <div className={styles.word}>{tempWord ? tempWord.english : ''}</div>
+          <div
+            onClick={handleNextPage}
+            className={`${styles.card} ${animation === styles.flipRight ? styles.flipRight : ''}`}
+            style={animation === styles.flipRight ? { zIndex: 2 } : { zIndex: 1 }}
+          >
+            <div className={animation === styles.flipRight ? styles.cardInner : styles.cardInnerFixed}>
+              <div className={styles.cardFace}>
+                <div className={styles.word}>{words[page].japanese}</div>
+              </div>
+              <div className={`${styles.cardFace} ${styles.cardBack}`}>
+                <div className={styles.word}>{tempWord ? tempWord.english : ''}</div>
+              </div>
             </div>
           </div>
-        </div>
+        </Tooltip>
         <div className={`${styles.hiddenCard} ${styles.hiddenCardRight}`}>
           <div className={styles.word}>{animation === styles.flipRight && tempWord ? tempWord.japanese : words[page].japanese}</div>
         </div>

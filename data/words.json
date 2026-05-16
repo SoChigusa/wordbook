@@ -34,5 +34,10 @@
   {
     "english": "demon lord",
     "japanese": "魔王"
+  },
+  {
+    "english": "exorcist",
+    "japanese": "悪魔払いの祈祷師、祓魔師",
+    "comment": "青の祓魔師（エクソシスト）、などで覚える"
   }
 ]

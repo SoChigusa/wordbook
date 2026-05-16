@@ -7,7 +7,7 @@ const credentials = require('./keys/wordbook-431919-b4af72f10f5d.json');
 
 // スプレッドシートのIDとレンジを指定
 const spreadsheetId = '19Ngmq3qELWZR3UWHfbxAq5Xd62eI-0eDMHstwRj406E';
-const range = 'words!A:B'; // 必要に応じて変更
+const range = 'words!A:C'; // 必要に応じて変更
 
 const updateWords = async () => {
   const auth = new google.auth.GoogleAuth({
@@ -35,6 +35,7 @@ const updateWords = async () => {
   const words = dataRows.map(row => ({
     english: row[0],
     japanese: row[1],
+    comment: row[2],
   }));
 
   // words.json ファイルのパスを指定
